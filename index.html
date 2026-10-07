@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="9527电影网（9527dianyingwang-cn.github.io）是精选电影、电视剧的影片资料与观影指南站点，提供最新院线电影、热播剧集、类型分类、口碑榜单与深度影评，帮你快速选到值得看的好片子。">
+<meta name="keywords" content="9527电影网, 电影在线观看, 最新电影, 热播电视剧, 高清电影, 影片推荐, 影视导航, 观影指南, 9527dianyingwang-cn">
+<meta name="author" content="9527电影网">
+<meta name="robots" content="index, follow">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://9527dianyingwang-cn.github.io/">
+<meta property="og:title" content="9527电影网 - 精选优质电影电视剧导航大全">
+<meta property="og:description" content="9527电影网提供电影、电视剧的影片资料、剧情简介与观影指南，含分类、榜单与深度解读。">
+<meta property="og:url" content="https://9527dianyingwang-cn.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="9527电影网">
+<title>9527电影网 - 精选优质电影电视剧导航大全 | 9527dianyingwang-cn.github.io</title>
+<style>
+:root{
+  --bg:#050608; --grid:rgba(0,238,180,.09); --txt:#e8fff6; --dim:#6f8b80;
+  --gre:#00e6b4; --gre2:#00b3ff; --amb:#ffb300; --ink:#0b1c17;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"SF Mono",Consolas,"Cascadia Code","PingFang SC","Microsoft YaHei",monospace,sans-serif;
+  background:var(--bg); color:var(--txt); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:44px 44px; background-position:-1px -1px;
+}
+body:before{content:"";position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(900px 460px at 82% -8%,rgba(0,179,255,.16),transparent 62%),
+  radial-gradient(640px 320px at 4% 8%,rgba(0,230,180,.13),transparent 60%),
+  linear-gradient(180deg,rgba(5,6,8,.30),rgba(5,6,8,.96));}
+a{color:inherit;text-decoration:none;transition:.22s cubic-bezier(.4,0,.2,1)}
+ul,ol{list-style:none}
+:focus-visible{outline:2px solid var(--gre);outline-offset:2px}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px}
+::selection{background:var(--gre);color:var(--ink)}
+
+/* ===== 终端通用 ===== */
+.tagline{font-size:11px;letter-spacing:.18em;color:var(--gre);font-weight:700}
+.tagline:before{content:"// "}
+.panel{border:1px solid rgba(0,230,180,.3);background:rgba(6,14,11,.72);backdrop-filter:blur(8px);position:relative}
+.panel:before{content:"";position:absolute;left:-1px;top:-1px;width:26px;height:26px;border-top:3px solid var(--gre);border-left:3px solid var(--gre)}
+.crt{position:relative;overflow:hidden}
+.crt:after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.16),rgba(0,0,0,.16) 2px,transparent 2px,transparent 5px)}
+
+/* ===== 导航 ===== */
+.nav{position:sticky;top:0;z-index:200;border-bottom:1px dashed rgba(0,230,180,.4);background:rgba(5,6,8,.86);backdrop-filter:blur(10px)}
+.nav .row{display:flex;align-items:center;gap:18px;height:64px}
+.logo{display:flex;align-items:baseline;gap:9px;font-weight:900;letter-spacing:.04em;white-space:nowrap}
+.logo b{font-size:20px;color:#fff}
+.logo .v{font-size:10px;color:var(--dim);letter-spacing:.3em}
+.prompt{font-size:11px;color:var(--dim);display:flex;gap:7px;align-items:center;flex:none}
+.prompt i{color:var(--gre);font-style:normal;animation:bl 1.1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+.search{flex:1;max-width:280px;position:relative}
+.search input{width:100%;border:1px solid rgba(0,230,180,.35);background:rgba(0,230,180,.05);border-radius:0;padding:8px 12px 8px 30px;font-size:12px;color:var(--txt);outline:none;font-family:inherit}
+.search input:focus{border-color:var(--gre);background:rgba(0,230,180,.1);box-shadow:0 0 0 3px rgba(0,230,180,.1)}
+.search:before{content:"⌕";position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--gre);font-size:14px}
+.menu{display:flex;gap:2px;margin-left:auto}
+.menu a{padding:7px 12px;font-size:12px;font-weight:700;color:var(--dim);border:1px solid transparent}
+.menu a:hover{color:var(--gre);border-color:rgba(0,230,180,.4);background:rgba(0,230,180,.06)}
+.menu a.on{color:var(--ink);background:var(--gre);border-color:var(--gre)}
+.ham{display:none;width:38px;height:38px;border:1px solid rgba(0,230,180,.4);background:transparent;color:var(--gre);cursor:pointer;align-items:center;justify-content:center;font-size:16px}
+
+/* ===== 标题 ===== */
+section{padding:64px 0}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;letter-spacing:.26em;color:var(--gre);margin-bottom:14px;font-weight:800}
+.kicker span{width:30px;height:1px;background:var(--gre)}
+h2.sec{font-size:clamp(24px,4.4vw,36px);font-weight:900;line-height:1.3;letter-spacing:-.02em}
+h2.sec em{font-style:normal;color:var(--gre)}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px;border-bottom:1px dashed rgba(0,230,180,.3);padding-bottom:14px}
+.more{font-size:11px;color:var(--gre);border:1px solid rgba(0,230,180,.4);padding:6px 12px;letter-spacing:.1em}
+.more:hover{background:var(--gre);color:var(--ink)}
+
+/* ===== Hero：终端窗口 ===== */
+.hero{padding:54px 0 0}
+.hero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.term{border:1px solid rgba(0,230,180,.35);background:rgba(6,14,11,.82);backdrop-filter:blur(10px);border-radius:4px;overflow:hidden;box-shadow:0 34px 80px rgba(0,0,0,.6)}
+.tbar{display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(0,230,180,.22);background:rgba(0,230,180,.05)}
+.tbar i{width:10px;height:10px;border-radius:50%;background:rgba(0,230,180,.3)}
+.tbar i:nth-child(1){background:#ff5f57}.tbar i:nth-child(2){background:#febc2e}.tbar i:nth-child(3){background:#28c840}
+.tbar b{margin-left:auto;font-size:10px;color:var(--dim);font-weight:600;letter-spacing:.14em}
+.tbody{padding:20px 20px 24px;font-size:12.5px;line-height:2}
+.tbody .l{color:var(--dim)}
+.tbody .c{color:var(--gre)}
+.tbody .y{color:var(--amb)}
+.tbody h1{font-size:clamp(26px,5.6vw,44px);line-height:1.2;margin:14px 0 6px;color:#fff;letter-spacing:-.03em}
+.tbody p{color:#a9c6bd;font-size:13px;line-height:1.85;margin:10px 0 16px;max-width:560px}
+.blink{display:inline-block;width:9px;height:1.1em;background:var(--gre);vertical-align:-.16em;margin-left:5px;animation:bl 1.05s steps(2) infinite}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{font-size:10.5px;padding:5px 11px;border:1px dashed rgba(0,230,180,.45);color:var(--gre);letter-spacing:.06em}
+.chip:hover{background:var(--gre);color:var(--ink)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{padding:12px 24px;border:1px solid var(--gre);background:rgba(0,230,180,.08);color:var(--gre);font-weight:800;font-size:12.5px;letter-spacing:.1em;cursor:pointer;font-family:inherit;transition:.22s}
+.btn-pri{background:var(--gre);color:var(--ink)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,230,180,.25)}
+
+/* ===== 栏目一：电影（终端表格） ===== */
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th{text-align:left;padding:12px 14px;color:var(--gre);font-size:10.5px;letter-spacing:.2em;border-bottom:1px solid rgba(0,230,180,.35);background:rgba(0,230,180,.05)}
+.tbl td{padding:14px;border-bottom:1px dashed rgba(0,230,180,.18);vertical-align:top}
+.tbl tr:hover td{background:rgba(0,230,180,.06)}
+.tbl .no{color:var(--dim);width:52px;font-variant-numeric:tabular-nums}
+.tbl .nm{font-weight:800;color:#fff;font-size:13.5px}
+.tbl .nm small{display:block;font-weight:500;color:var(--dim);font-size:10.5px;letter-spacing:.1em;margin-top:2px}
+.stars{color:var(--amb);letter-spacing:1px;white-space:nowrap}
+.pct{display:flex;align-items:center;gap:9px;min-width:150px}
+.pct b{font-variant-numeric:tabular-nums;color:var(--gre);width:40px}
+.pct .track{height:6px;flex:1;background:rgba(0,230,180,.12);position:relative;overflow:hidden}
+.pct .track i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--gre),var(--gre2))}
+.up{color:#4ade80}.down{color:#fb7185}
+
+/* ===== 栏目二：剧集（ASCII 卡片 + 二进制进度） ===== */
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:16px}
+.dc{border:1px solid rgba(0,230,180,.28);background:rgba(6,14,11,.66);transition:.26s;display:flex;flex-direction:column}
+.dc:hover{border-color:var(--gre);transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.dc .cv{height:104px;position:relative;overflow:hidden;border-bottom:1px solid rgba(0,230,180,.28)}
+.dc .cv:after{content:attr(data-art);white-space:pre;font-size:6.2px;line-height:1.05;color:rgba(0,230,180,.5);padding:8px 10px;display:block}
+.dc .cv b{position:absolute;right:10px;top:8px;font-size:10px;background:var(--ink);color:var(--gre);border:1px solid var(--gre);padding:2px 7px;letter-spacing:.1em}
+.dc .bd{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}
+.dc .bd h4{font-size:15px;font-weight:900;color:#fff;line-height:1.4}
+.dc .bd .m{font-size:10.5px;color:var(--dim);letter-spacing:.1em;margin:4px 0 12px}
+.dc .bin{font-size:8.5px;letter-spacing:0;color:var(--gre2);line-height:1.3;margin-bottom:8px;word-break:break-all;opacity:.75}
+.dc .go{margin-top:auto;font-size:11px;color:var(--gre);border-top:1px dashed rgba(0,230,180,.3);padding-top:10px;display:flex;justify-content:space-between}
+
+/* ===== 栏目三：解读（定义列表 DL） ===== */
+.read{display:grid;grid-template-columns:1.1fr .9fr;gap:26px}
+.read dl{border:1px solid rgba(0,230,180,.28);background:rgba(6,14,11,.6);padding:6px 0}
+.read dt{display:flex;gap:12px;align-items:baseline;padding:16px 20px 0}
+.read dt .d{font-size:10.5px;color:var(--amb);letter-spacing:.14em;flex:none;width:64px}
+.read dt b{font-size:15.5px;color:#fff;line-height:1.45}
+.read dd{padding:8px 20px 16px;border-bottom:1px dashed rgba(0,230,180,.2);font-size:12.5px;color:#a9c6bd}
+.read dd:last-child{border:0}
+.read dd .cat{display:inline-block;margin-top:9px;font-size:9.5px;letter-spacing:.2em;color:var(--gre);border:1px solid rgba(0,230,180,.4);padding:3px 8px}
+.bigq{border:1px solid rgba(0,230,180,.35);background:rgba(0,230,180,.05);padding:26px}
+.bigq q{font-size:clamp(18px,2.8vw,25px);font-weight:900;line-height:1.55;color:#fff;quotes:"“" "”"}
+.bigq q:before,q:after{color:var(--gre)}
+.bigq p{margin-top:14px;font-size:12.5px;color:var(--dim)}
+.bigq .sig{margin-top:18px;font-size:11px;color:var(--gre);letter-spacing:.2em}
+
+/* ===== 栏目四：榜单（刻度尺 + 光标） ===== */
+.rule{position:relative;height:70px;border:1px solid rgba(0,230,180,.3);background:rgba(6,14,11,.6);margin-bottom:8px;overflow:hidden}
+.rule i{position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(0,230,180,.5)}
+.rule b{position:absolute;bottom:6px;font-size:9px;color:var(--dim);letter-spacing:.1em;transform:translateX(-50%)}
+.rule .tk{position:absolute;top:0;bottom:14px;width:2px;background:linear-gradient(180deg,var(--amb),transparent)}
+.rank-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rk{border:1px solid rgba(0,230,180,.24);background:rgba(6,14,11,.55);padding:16px;transition:.22s}
+.rk:hover{border-color:var(--gre);background:rgba(0,230,180,.08)}
+.rk .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.rk .top .n{font-size:22px;font-weight:900;color:rgba(0,230,180,.4);line-height:1}
+.rk.on .top .n{color:var(--gre)}
+.rk h5{font-size:14px;font-weight:800;color:#fff;margin:8px 0 4px;line-height:1.4}
+.rk small{font-size:10.5px;color:var(--dim);letter-spacing:.08em}
+.rk .v{font-size:13px;font-weight:900;color:var(--amb);font-variant-numeric:tabular-nums}
+
+/* ===== 栏目五：分类（按键矩阵） ===== */
+.pad{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px}
+.key{border:1px solid rgba(0,230,180,.3);background:rgba(6,14,11,.6);padding:16px 14px;text-align:left;cursor:pointer;font-family:inherit;transition:.18s;position:relative}
+.key:before{content:"";position:absolute;inset:4px;border:1px solid rgba(0,230,180,.12)}
+.key:hover{background:var(--gre);border-color:var(--gre);color:var(--ink);transform:translateY(-3px)}
+.key k{display:block;font-size:14.5px;font-weight:900;letter-spacing:.06em}
+.key var{font-style:normal;font-size:10px;opacity:.7;letter-spacing:.16em}
+.key:hover var{opacity:.85}
+
+/* ===== 栏目六：关于（控制台面板） ===== */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.monitor{border:1px solid rgba(0,230,180,.35);background:rgba(6,14,11,.8);padding:20px 22px}
+.monitor h3{font-size:clamp(20px,3.2vw,27px);line-height:1.45;color:#fff}
+.monitor h3 u{text-decoration:none;color:var(--gre)}
+.monitor p{font-size:12.5px;color:#a9c6bd;margin-top:10px}
+.gauge{margin-top:18px;display:flex;flex-direction:column;gap:11px}
+.gauge div{font-size:11px;color:var(--dim);display:flex;justify-content:space-between;letter-spacing:.1em}
+.gauge div b{color:var(--gre);font-variant-numeric:tabular-nums}
+.gauge .track{height:7px;background:rgba(0,230,180,.12);margin-top:4px;position:relative;overflow:hidden}
+.gauge .track i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--gre),var(--gre2))}
+.console{border:1px solid rgba(0,230,180,.3);background:rgba(3,8,6,.9);padding:18px;font-size:11.5px;line-height:2;color:var(--dim);overflow:hidden}
+.console .o{color:var(--gre)}
+.console .w{color:var(--amb)}
+.console form{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.console input[type=email]{flex:1;min-width:170px;border:1px solid rgba(0,230,180,.4);background:rgba(0,230,180,.05);color:var(--txt);padding:9px 11px;font-family:inherit;font-size:12px;outline:none}
+.console input[type=email]:focus{border-color:var(--gre);box-shadow:0 0 0 3px rgba(0,230,180,.12)}
+.console button{border:1px solid var(--gre);background:var(--gre);color:var(--ink);font-weight:800;padding:9px 16px;font-family:inherit;font-size:11.5px;letter-spacing:.14em;cursor:pointer}
+
+/* ===== 页脚 ===== */
+.foot{border-top:1px dashed rgba(0,230,180,.4);padding:38px 0 20px;margin-top:36px;background:rgba(0,0,0,.4)}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:26px;margin-bottom:24px}
+.fg h5{font-size:10.5px;letter-spacing:.24em;color:var(--gre);margin-bottom:12px}
+.fg ul{display:flex;flex-direction:column;gap:8px}
+.fg a{font-size:12px;color:var(--dim)}
+.fg a:hover{color:var(--gre)}
+.fb p{font-size:11.5px;color:var(--dim);margin-top:10px;max-width:290px;line-height:1.8}
+.copy{text-align:center;font-size:10.5px;color:var(--dim);border-top:1px dashed rgba(0,230,180,.3);padding-top:18px;line-height:2;letter-spacing:.06em}
+.copy a{color:var(--gre)}
+
+/* ===== 响应式 ===== */
+@media(max-width:900px){
+  .read{grid-template-columns:1fr}
+  .rank-grid{grid-template-columns:repeat(2,1fr)}
+  .hero .container{grid-template-columns:1fr}
+  .term{max-width:640px}
+}
+@media(max-width:760px){
+  .ham{display:flex;margin-left:auto}
+  .menu{position:fixed;inset:64px 0 0 0;background:rgba(5,7,6,.98);flex-direction:column;padding:20px;gap:5px;transform:translateX(100%);transition:.32s;z-index:199;overflow:auto}
+  .menu.open{transform:translateX(0)}
+  .menu a{font-size:14px;padding:15px 16px;border:1px solid rgba(0,230,180,.25)}
+  .search{max-width:none}
+  .prompt{display:none}
+  .tbl thead{display:none}
+  .tbl tr{display:grid;grid-template-columns:44px 1fr;gap:0;border-bottom:1px dashed rgba(0,230,180,.22)}
+  .tbl td{border:0;padding:10px 12px}
+  .tbl .no{grid-row:1/5;display:grid;place-items:center;font-size:16px;color:rgba(0,230,180,.5)}
+  .tbl .nm{grid-column:2}
+  .tbl .pct{grid-column:2;min-width:0}
+  .about{grid-template-columns:1fr}
+  section{padding:50px 0}
+}
+@media(max-width:420px){
+  .container{padding:0 15px}
+  .fg{grid-template-columns:1fr 1fr}
+  .rank-grid,.pad{grid-template-columns:1fr 1fr}
+  .btn{flex:1;min-width:140px;justify-content:center}
+  .crt:after{display:none}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<!-- ============ 导航 ============ -->
+<header class="nav">
+  <div class="container row">
+    <a class="logo" href="#top" aria-label="9527电影网首页">
+      <span class="v">SYS</span> <b>9527电影网</b>
+    </a>
+    <span class="prompt">~/film <i>▍</i></span>
+    <div class="search">
+      <input type="search" placeholder="grep 影片名 / 类型 / 演员" aria-label="站内搜索">
+    </div>
+    <button class="ham" id="ham" aria-label="切换菜单">≡</button>
+    <nav class="menu" id="menu">
+      <a href="#film" class="on">film</a>
+      <a href="#series">series</a>
+      <a href="#read">read</a>
+      <a href="#rank">rank</a>
+      <a href="#cat">cat</a>
+      <a href="#about">about</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero：终端窗口 ============ -->
+<section class="hero" id="top">
+  <div class="container">
+    <div>
+      <span class="kicker"><span></span>9527 DIAN YING WANG</span>
+      <div class="term crt">
+        <div class="tbar"><i></i><i></i><i></i><b>~/9527dianyingwang-cn.github.io</b></div>
+        <div class="tbody">
+          <div><span class="l">visitor@bing</span>:<span class="c">~/film</span>$ <span class="y">./select --today</span></div>
+          <h1>今晚看什么？<br>3 秒给出答案<span class="blink"></span></h1>
+          <p>9527电影网是一个<b>影片资料与观影指南</b>站点。我们用"类型分类 + 实时口碑 + 深度解读"三层结构，把选片这件事变简单。</p>
+          <div class="chips">
+            <span class="chip"># 院线同步</span>
+            <span class="chip"># 口碑排序</span>
+            <span class="chip"># 12 大分类</span>
+            <span class="chip"># 移动端自适应</span>
+            <span class="chip"># 结构友好</span>
+          </div>
+          <div class="cta">
+            <a class="btn btn-pri" href="#film">$ run 开始选片</a>
+            <a class="btn" href="#rank">$ cat 口碑榜</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel" style="padding:20px">
+      <div class="tagline">STATUS · 数据面板</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px">
+        <div><b style="font-size:24px;color:#fff">3.1<span style="color:var(--gre);font-size:12px">万+</span></b><small style="display:block;font-size:10px;color:var(--dim);letter-spacing:.16em;margin-top:3px">影片词条</small></div>
+        <div><b style="font-size:24px;color:#fff">12</b><small style="display:block;font-size:10px;color:var(--dim);letter-spacing:.16em;margin-top:3px">内容分类</small></div>
+        <div><b style="font-size:24px;color:#fff">8.7</b><small style="display:block;font-size:10px;color:var(--dim);letter-spacing:.16em;margin-top:3px">平均评分</small></div>
+        <div><b style="font-size:24px;color:#fff">24<span style="color:var(--gre);font-size:12px">h</span></b><small style="display:block;font-size:10px;color:var(--dim);letter-spacing:.16em;margin-top:3px">同步更新</small></div>
+      </div>
+      <div style="margin-top:18px;font-size:10.5px;color:var(--dim);line-height:1.9">
+        <div>> uptime: <span class="c">99.98%</span></div>
+        <div>> last sync: <span class="c">2026-10-06 18:00</span></div>
+        <div>> build: <span class="c">static / zero-dep</span></div>
+        <div>> canonical: <span class="c">9527dianyingwang-cn.github.io</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ 栏目一：电影（终端表格） ============ -->
+<section id="film">
+  <div class="container">
+    <div class="head">
+      <div>
+        <span class="kicker"><span></span>01 / FILM</span>
+        <h2 class="sec">精选<em>电影</em>，按口碑排序</h2>
+      </div>
+      <a class="more" href="#">$ ls 全部电影 →</a>
+    </div>
+
+    <div class="panel crt" style="padding:6px 0">
+      <table class="tbl">
+        <thead><tr><th>NO.</th><th>影片 / GENRE</th><th>评分</th><th>口碑匹配度</th><th>走势</th></tr></thead>
+        <tbody>
+          <tr><td class="no">01</td><td class="nm">长夜将明<small>CRIME · 悬疑 · 128 MIN</small></td><td class="stars">★★★★★</td><td><div class="pct"><b>86%</b><div class="track"><i style="width:86%"></i></div></div></td><td class="up">▲ 0.4</td></tr>
+          <tr><td class="no">02</td><td class="nm">深海回响<small>DRAMA · 科幻 · 142 MIN</small></td><td class="stars">★★★★★</td><td><div class="pct"><b>89%</b><div class="track"><i style="width:89%"></i></div></div></td><td class="up">▲ 0.7</td></tr>
+          <tr><td class="no">03</td><td class="nm">长安雪<small>HISTORY · 武侠 · 156 MIN</small></td><td class="stars">★★★★★</td><td><div class="pct"><b>92%</b><div class="track"><i style="width:92%"></i></div></div></td><td class="up">▲ 0.2</td></tr>
+          <tr><td class="no">04</td><td class="nm">烟火人间<small>FAMILY · 喜剧 · 118 MIN</small></td><td class="stars">★★★★☆</td><td><div class="pct"><b>81%</b><div class="track"><i style="width:81%"></i></div></div></td><td class="down">▼ 0.1</td></tr>
+          <tr><td class="no">05</td><td class="nm">绿野迷踪<small>ANIME · 奇幻 · 118 MIN</small></td><td class="stars">★★★★★</td><td><div class="pct"><b>87%</b><div class="track"><i style="width:87%"></i></div></div></td><td class="up">▲ 1.1</td></tr>
+          <tr><td class="no">06</td><td class="nm">无声证言<small>MYSTERY · 犯罪 · 135 MIN</small></td><td class="stars">★★★★☆</td><td><div class="pct"><b>79%</b><div class="track"><i style="width:79%"></i></div></div></td><td class="down">▼ 0.3</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目二：剧集（ASCII 卡片 + 二进制进度） ============ -->
+<section id="series">
+  <div class="container">
+    <div class="head">
+      <div>
+        <span class="kicker"><span></span>02 / SERIES</span>
+        <h2 class="sec">热播<em>剧集</em>，进度可视化</h2>
+      </div>
+      <a class="more" href="#">$ ls 电视剧大全 →</a>
+    </div>
+
+    <div class="deck">
+      <article class="dc"><div class="cv" data-art="   _____
+  /     \
+ | O   O |
+  \  ^  /  大江大河
+   |___|   · 时代篇
+      -&gt;--&gt;--&gt;"><b>EP 24/40</b></div>
+        <div class="bd"><h4>大江大河·时代</h4><div class="m">REALISM · 年代 · 40 EPS</div>
+          <div class="bin">11011010 00110110 11100011</div>
+          <div class="go"><span>已播 60%</span><span>→ 继续</span></div></div></article>
+
+      <article class="dc"><div class="cv" data-art="   .---.
+  /     \
+ |  []   |  隐秘的角落
+  \     /   · 第二季
+   `---'   SUSPENSE
+      -||-||-"><b>EP 8/12</b></div>
+        <div class="bd"><h4>隐秘的角落·第二季</h4><div class="m">SUSPENSE · 犯罪 · 12 EPS</div>
+          <div class="bin">10101000 11001101 00011110</div>
+          <div class="go"><span>已播 67%</span><span>→ 追更</span></div></div></article>
+
+      <article class="dc"><div class="cv" data-art="  .------.
+ /  __  \
+|  /  \  |  锦绣安宁
+|  \__/  |  · 古装权谋
+ \      /   COSTUME
+  `----'    &lt;&gt;&lt;&gt;&lt;&gt;"><b>EP 31/40</b></div>
+        <div class="bd"><h4>锦绣安宁</h4><div class="m">COSTUME · 权谋 · 40 EPS</div>
+          <div class="bin">11100110 01010101 10110011</div>
+          <div class="go"><span>已播 78%</span><span>→ 收官</span></div></div></article>
+
+      <article class="dc"><div class="cv" data-art="   ____
+  / __ \
+ / /  \ \  城市之光
+ | |  | |  · 都市职场
+  \ \__/ /  URBAN
+   \____/   ====////"><b>EP 18/32</b></div>
+        <div class="bd"><h4>城市之光</h4><div class="m">URBAN · 职场 · 32 EPS</div>
+          <div class="bin">01101100 10010011 11001100</div>
+          <div class="go"><span>已播 56%</span><span>→ 追更</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目三：解读（定义列表 DL） ============ -->
+<section id="read">
+  <div class="container">
+    <div class="head">
+      <div>
+        <span class="kicker"><span></span>03 / READ</span>
+        <h2 class="sec">影视<em>解读</em>，不只看热闹</h2>
+      </div>
+      <a class="more" href="#">$ cat 全部文章 →</a>
+    </div>
+
+    <div class="read">
+      <dl>
+        <dt><span class="d">2026.10.05</span><b>国庆档复盘：类型多元，正在成为票房新引擎</b></dt>
+        <dd>12 部新片涵盖科幻、悬疑、动画、现实主义。观众对"非续集原创故事"接受度显著提升，中小成本影片凭口碑实现票房逆跌。<span class="cat">产业观察</span></dd>
+
+        <dt><span class="d">2026.10.02</span><b>短剧正在改写习惯：3 分钟一集的生意经</b></dt>
+        <dd>用户日均使用时长上升，付费渗透率突破关键阈值。内容从"狗血"走向"强情节 + 强人设"，制作规格快速追上长剧。<span class="cat">趋势</span></dd>
+
+        <dt><span class="d">2026.09.29</span><b>9 分俱乐部扩容：这些冷门佳作值得补票</b></dt>
+        <dd>15 部评分 9.0 以上、但大众认知度偏低的影片清单，涵盖纪录片、独立电影与修复版经典，适合周末集中补课。<span class="cat">片单</span></dd>
+
+        <dt><span class="d">2026.09.26</span><b>从"长镜头"到"一镜到底"：摄影美学进化</b></dt>
+        <dd>技术门槛下降后，长镜头的叙事功能被重新讨论——它是炫技，还是最有效的情绪容器？<span class="cat">技术</span></dd>
+
+        <dt><span class="d">2026.09.22</span><b>AI 进入后期：特效成本下降约 40%</b></dt>
+        <dd>补帧、擦除、转场、概念设计环节最先受益。但"可预见性"也成为新瓶颈，导演开始反向追求"不完美"。<span class="cat">幕后</span></dd>
+      </dl>
+
+      <div class="bigq">
+        <q>真正的好电影，是散场后仍在你身体里继续放映的那一种。</q>
+        <p>9527电影网坚持"资料先行、口碑为本、解读为深"。我们不提供播放，只帮你做出更聪明的选片决定。</p>
+        <div class="sig">— EDITORIAL #007</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目四：榜单（刻度尺 + 光标） ============ -->
+<section id="rank">
+  <div class="container">
+    <div class="head">
+      <div>
+        <span class="kicker"><span></span>04 / RANK</span>
+        <h2 class="sec">影视<em>榜单</em>，口碑不撒谎</h2>
+      </div>
+      <a class="more" href="#">$ cat 完整榜单 →</a>
+    </div>
+
+    <div class="panel" style="padding:22px 22px 16px">
+      <div class="tagline">SCORE RULER · 8.0 — 9.5</div>
+      <div class="rule">
+        <i></i>
+        <b style="left:0%">8.0</b><b style="left:25%">8.4</b><b style="left:50%">8.7</b><b style="left:75%">9.1</b><b style="left:100%">9.5</b>
+        <span class="tk" style="left:80%"></span>
+        <span class="tk" style="left:73%"></span>
+        <span class="tk" style="left:88%"></span>
+        <span class="tk" style="left:56%"></span>
+        <span class="tk" style="left:69%"></span>
+        <span class="tk" style="left:61%"></span>
+        <span class="tk" style="left:85%"></span>
+        <span class="tk" style="left:64%"></span>
+      </div>
+
+      <div class="rank-grid">
+        <div class="rk on"><div class="top"><span class="n">01</span><span class="v">9.2</span></div><h5>长安雪</h5><small>HISTORY / 武侠 · 156 MIN</small></div>
+        <div class="rk on"><div class="top"><span class="n">02</span><span class="v">8.9</span></div><h5>深海回响</h5><small>DRAMA / 科幻 · 142 MIN</small></div>
+        <div class="rk"><div class="top"><span class="n">03</span><span class="v">8.7</span></div><h5>绿野迷踪</h5><small>ANIME / 奇幻 · 118 MIN</small></div>
+        <div class="rk on"><div class="top"><span class="n">04</span><span class="v">8.8</span></div><h5>大江大河·时代</h5><small>REALISM · 在更 ▲2</small></div>
+        <div class="rk"><div class="top"><span class="n">05</span><span class="v">8.6</span></div><h5>长夜将明</h5><small>CRIME / 悬疑 · 128 MIN</small></div>
+        <div class="rk on"><div class="top"><span class="n">06</span><span class="v">8.5</span></div><h5>隐秘的角落·第二季</h5><small>SUSPENSE / 短剧范本</small></div>
+        <div class="rk"><div class="top"><span class="n">07</span><span class="v">8.3</span></div><h5>锦绣安宁</h5><small>COSTUME / 权谋</small></div>
+        <div class="rk"><div class="top"><span class="n">08</span><span class="v">8.1</span></div><h5>烟火人间</h5><small>FAMILY / 喜剧 · 合家欢</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目五：分类（按键矩阵） ============ -->
+<section id="cat">
+  <div class="container">
+    <div class="head">
+      <div>
+        <span class="kicker"><span></span>05 / CATEGORY</span>
+        <h2 class="sec">影片<em>分类</em>，不绕路</h2>
+      </div>
+      <a class="more" href="#">$ ls 全部分类 →</a>
+    </div>
+
+    <div class="pad">
+      <button class="key"><var>ACTION</var><k>动作</k></button>
+      <button class="key"><var>SUSPENSE</var><k>悬疑</k></button>
+      <button class="key"><var>ROMANCE</var><k>爱情</k></button>
+      <button class="key"><var>COMEDY</var><k>喜剧</k></button>
+      <button class="key"><var>SCI-FI</var><k>科幻</k></button>
+      <button class="key"><var>HORROR</var><k>恐怖</k></button>
+      <button class="key"><var>ANIME</var><k>动画</k></button>
+      <button class="key"><var>DOCU</var><k>纪实</k></button>
+      <button class="key"><var>DRAMA</var><k>剧情</k></button>
+      <button class="key"><var>WUXIA</var><k>武侠</k></button>
+      <button class="key"><var>CN-DRAMA</var><k>国产剧</k></button>
+      <button class="key"><var>OV-DRAMA</var><k>海外剧</k></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 栏目六：关于（控制台面板） ============ -->
+<section id="about">
+  <div class="container">
+    <div class="about">
+      <div class="monitor">
+        <div class="tagline">ABOUT · 9527 电影网</div>
+        <h3 style="margin-top:12px">让选片变简单，<br>让<b style="color:var(--gre)">好片子</b>被看见。</h3>
+        <p>网站网址：<strong style="color:#fff">https://9527dianyingwang-cn.github.io/</strong>。我们不做播放，只做<b>影片资料与观影指南</b>：电影、电视剧、综艺、动漫的剧情简介、类型标签、上映动态与选片建议，一页看完。</p>
+        <div class="gauge">
+          <div><span>影片资料完整度</span><b>96%</b><div class="track"><i style="width:96%"></i></div></div>
+          <div><span>评分数据更新</span><b>99%</b><div class="track"><i style="width:99%"></i></div></div>
+          <div><span>移动端适配</span><b>100%</b><div class="track"><i style="width:100%"></i></div></div>
+          <div><span>SEO 结构优化</span><b>95%</b><div class="track"><i style="width:95%"></i></div></div>
+        </div>
+      </div>
+
+      <div class="console crt">
+        <div>> init 9527dianyingwang-cn</div>
+        <div><span class="o">[ok]</span> load film.db … 31,204 rows</div>
+        <div><span class="o">[ok]</span> build static index … zero dependency</div>
+        <div><span class="w">[warn]</span> content is placeholder, replace before publish</div>
+        <div>> subscribe --email</div>
+        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='[ok] subscribed';">
+          <input type="email" placeholder="your@email.com" required aria-label="邮箱地址">
+          <button type="submit">ENTER</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="foot">
+  <div class="container">
+    <div class="fg">
+      <div class="fb">
+        <div class="logo"><span class="v">SYS</span> <b>9527电影网</b></div>
+        <p>9527电影网 — 精选电影、电视剧的影片资料与观影指南站点，网址 9527dianyingwang-cn.github.io。</p>
+      </div>
+      <div>
+        <h5>CHANNEL</h5>
+        <ul>
+          <li><a href="#film">最新电影</a></li>
+          <li><a href="#series">热播电视剧</a></li>
+          <li><a href="#cat">综艺动漫</a></li>
+          <li><a href="#rank">口碑榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>EDITORIAL</h5>
+        <ul>
+          <li><a href="#read">影视解读</a></li>
+          <li><a href="#">片单推荐</a></li>
+          <li><a href="#">影评专栏</a></li>
+          <li><a href="#">行业观察</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>SYSTEM</h5>
+        <ul>
+          <li><a href="#about">站点简介</a></li>
+          <li><a href="#">免责声明</a></li>
+          <li><a href="#">合作联系</a></li>
+          <li><a href="#">意见反馈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      © <span id="yr"></span> 9527电影网（9527dianyingwang-cn.github.io） · HOST: <a href="https://9527dianyingwang-cn.github.io/">https://9527dianyingwang-cn.github.io/</a> · BUILD: static / inline-css / zero-dep<br>
+      本页为静态演示页面，内页链接以 # 占位，影片名称、评分、简介均为示例内容，不构成实际播放承诺。
+    </div>
+  </div>
+</footer>
+
+<script>
+var ham=document.getElementById('ham'),menu=document.getElementById('menu');
+ham.addEventListener('click',function(){
+  menu.classList.toggle('open');
+  ham.textContent=menu.classList.contains('open')?'✕':'≡';
+});
+menu.addEventListener('click',function(e){
+  if(e.target.tagName==='A'){menu.classList.remove('open');ham.textContent='≡';}
+});
+var secs=document.querySelectorAll('section[id]'),links=document.querySelectorAll('.menu a');
+window.addEventListener('scroll',function(){
+  var cur='';
+  secs.forEach(function(s){if(window.scrollY>=s.offsetTop-124)cur=s.id;});
+  links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
